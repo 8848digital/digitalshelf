@@ -8,7 +8,7 @@ const BrandProductListing = ({ meta_data }: any) => {
         handlePagination, handlePrice, price } = useProductListing();
     return (
         <div>
-            <Header meta_data={meta_data} />
+            {/* <Header meta_data={meta_data} /> */}
             <>
             <ProductListingMaster/>
             </>
