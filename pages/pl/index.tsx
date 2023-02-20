@@ -18,9 +18,9 @@ const ProductListing = ({ meta_data }: any) => {
     );
 }
 
-export async function getServerSideProps(context: any) {
-    let meta_data = await MetaTag(`${CONSTANTS.META_TAG_URL}${context.resolvedUrl}`);
-    return { props: { meta_data } };
-}
+// export async function getServerSideProps(context: any) {
+//     let meta_data = await MetaTag(`${CONSTANTS.META_TAG_URL}${context.resolvedUrl}`);
+//     return { props: { meta_data } };
+// }
 
 export default ProductListing
