@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import getCouponCode from "../../services/api/couponCode_api";
+import getCouponCode from "../../../services/api/checkout_page_api/couponCode_api";
 
 interface RepoCouponCodeState {
   item: any;

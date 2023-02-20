@@ -2,13 +2,16 @@ import { combineReducers } from "@reduxjs/toolkit";
 import NavbarReducer from "./slices/home_page_slice/navbar_slice";
 import CarouselReducer from "./slices/home_page_slice/carousel_slice";
 import BrandsReducer from "./slices/home_page_slice/brands_slice";
+import HomePageDisplayTagProductListingReducer from "./slices/home_page_slice/display_tag_product_listing_slice";
 import HomeCategoriesReducer from "./slices/home_page_slice/home_categories_slice";
+import HomeCategoriesWithListingReducer from "./slices/home_page_slice/home_categories_listing_slice";
 import ProductListingReducer from "./slices/product_listing_slice/product_listing_slice";
 import ProductDetailReducer from "./slices/product_detail_slice/product_detail_slice";
 import ProductVariantReducer from "./slices/product_detail_slice/product_variant_slice";
 import BreadCrumbsReducer from "./slices/general_slice/breadcrumbs";
 import FiltersReducer from "./slices/product_listing_slice/filter_slice";
 import LoginReducer from "./slices/auth_slice/login-slice";
+import TokenLoginScreen from "./slices/auth_slice/token-login-slice ";
 import OrderSummary from "./slices/checkout_page_slice/order_summary";
 import ProfilePage from "./slices/profile_page_slice/profilePage_slice";
 import DealerAddCart from "./slices/cart_page_slice/dealer_addto_cart_slice";
@@ -22,7 +25,6 @@ import StoreCustomerAddress from "./slices/customer_addresses_slice/store_addres
 import Resetpassword from "./slices/auth_slice/forgot_password_slice";
 import GetCustomerAddress from "./slices/customer_addresses_slice/getCustomerAddress_slice";
 import FindaDealer from "../store/slices/dealer_slice/find_a_dealer";
-
 // new checkout code
 import CustomerShippingAddress from "./slices/customer_addresses_slice/customer_shipping_address_slice";
 import CustomerBillingAddress from "./slices/customer_addresses_slice/customer_billing_address_slice";
@@ -36,6 +38,8 @@ import StoreReplacementImages from "./slices/my_order_slice/store_replacement_im
 import Wishlist from "./slices/general_slice/wishlist_slice";
 import storage from "redux-persist/lib/storage";
 import SuggestedProScreen from "./slices/product_detail_slice/suggested_pro_slice";
+import SpRegistrationScreen from"./slices/auth_slice/sp_registration_slice";
+import recentlyBoughtItems from "./slices/home_page_slice/recently_bought_items_slice";
 // const rootReducer = combineReducers({
 //     navbar: NavbarReducer,
 //     carousel: CarouselReducer,
@@ -79,13 +83,16 @@ const appReducer = combineReducers({
   navbar: NavbarReducer,
   carousel: CarouselReducer,
   brands: BrandsReducer,
+  homePageDisplayTagProductListing:HomePageDisplayTagProductListingReducer,
   homeCategories: HomeCategoriesReducer,
+  homeCategoriesWithListing: HomeCategoriesWithListingReducer, 
   productListing: ProductListingReducer,
   productDetail: ProductDetailReducer,
   productVariants: ProductVariantReducer,
   breadCrumbs: BreadCrumbsReducer,
   filters: FiltersReducer,
   Login: LoginReducer,
+  TokenLogin:TokenLoginScreen,
   orderSummary: OrderSummary,
   // CartListing : CartListing,
   cart: CartReducer,
@@ -112,6 +119,8 @@ const appReducer = combineReducers({
   storeReplacementImages : StoreReplacementImages,
   wishlist:Wishlist,
   suggestedProScreen : SuggestedProScreen,
+  SpRegistration:SpRegistrationScreen,
+  recentlyBoughtItems:recentlyBoughtItems
 });
 
 const rootReducer = (state: any, action: any) => {

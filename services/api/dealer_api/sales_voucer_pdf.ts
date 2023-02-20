@@ -1,5 +1,5 @@
 
-import { client } from "../general_api/cookie_instance"
+import { client } from "./../general_api/cookie_instance"
 const GetSalesVoucherPdf = async(pdf_link:any) => 
 {   
     const api_res = await client.get(`${pdf_link}`).then((res)=>{

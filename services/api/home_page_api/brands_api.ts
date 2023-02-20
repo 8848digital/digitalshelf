@@ -1,7 +1,7 @@
 import axios from "axios";
 import { CONSTANTS } from "../../config/api-config";
 import { BrandsApiMethods } from "../../methods/brands_method";
-import { client } from "../general_api/cookie_instance";
+import { client } from "./../general_api/cookie_instance";
 const brandsFetch = async () => {
     const config = {
         headers: {

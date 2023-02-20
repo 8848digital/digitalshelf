@@ -16,14 +16,32 @@ const useBrands = () => {
   const dispatch = useDispatch();
   useEffect(() => {
     // if (typeof brands.items !== "undefined" && brands.items.length === 0)
+    // {
+    //   dispatch(BrandsApi());
+    // }
     dispatch(BrandsApi());
   }, []);
   
   useEffect(() => {
-    setbrandItems([...brands.items]);
+    setbrandItems([...brands?.items]);
+    // console.log('brands check', brands?.items?.length);
+    // // setbrandItems([...brands.items]);
+    // if(brands?.items?.length > 0 )
+    // {
+    //   // console.log('brands check', brands?.items?.length);
+    //   setbrandItems([...brands?.items]);
+    // }
+    // else
+    // {
+    //   console.log('brands check', brands?.items?.length);
+    //   setbrandItems((brandItems = []));
+    // }
+      
     // setbrandItems(brands.items);
     // console.log("use effect brands",)
   }, [brands]);
+
+  console.log("brands",brands)
 
   return brandItems;
 };

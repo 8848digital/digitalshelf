@@ -1,7 +1,7 @@
 import axios from "axios";
 import { CONSTANTS } from "../../config/api-config";
 import { CustomerBillingAddressMethod } from "../../methods/customer_billing_address_method";
-import { client } from "../general_api/cookie_instance";
+import { client } from "./../general_api/cookie_instance";
 
 const customerBillingAddressFetch = async () => {
   console.log("checkout billing api");

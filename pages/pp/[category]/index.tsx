@@ -2,7 +2,6 @@ import MetaTag from '../../../services/api/general_api/metaTag_api';
 import { CONSTANTS } from "../../../services/config/api-config";
 import Header from '../../../components/Head/Head';
 import ProductDetailMasterComponent from '../../../components/ProductDetailMaster/ProductDetailMasterComponent';
-// import useProductDetail from "../../../../../../hooks/product_detail_hook"
 const ProductDetail = ({ meta_data }: any) => {
     // const { detail } = useProductDetail();
     // console.log("detail render page", getProductDetails);
@@ -10,9 +9,9 @@ const ProductDetail = ({ meta_data }: any) => {
     // console.log("detail", detail);
     return (
         <div>
-            <Header meta_data={meta_data} />
+            {/* <Header meta_data={meta_data} /> */}
             <>
-                <ProductDetailMasterComponent/>
+                <ProductDetailMasterComponent />
             </>
         </div>
     )

@@ -12,8 +12,8 @@ const useCarousel = () => {
 
   useEffect(() => {
     // if (typeof carouselItems.items !== "undefined" && carouselItems.items.length === 0) {
+    //   dispatch(carouselAPI())
     // }
-    // dispatch(carouselAPI())
     dispatch(carouselAPI());
   }, []);
   

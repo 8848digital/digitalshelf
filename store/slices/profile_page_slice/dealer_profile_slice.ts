@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import getDealerprofile from "../../../services/api/profile_page_api/profile_page_api";
+import getDealerprofile from "../../../services/api/dealer_api/dealer_profile_api";
 import { RootState } from "../../root_reducer";
 // import { AppState } from "../store";
 

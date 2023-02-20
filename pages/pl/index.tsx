@@ -5,12 +5,12 @@ import MetaTag from "../../components/MetaTag";
 import { CONSTANTS } from "../../services/config/api-config";
 import Header from "../../components/Head/Head";
 const ProductListing = ({ meta_data }: any) => {
-    console.log("product listing pl")
+    // console.log("product listing pl");
     // console.log("Product count ", product_count);
     return (
       // <ProductList />
       <div>
-        <Header meta_data={meta_data} />
+        {/* <Header meta_data={meta_data} /> */}
         <>
           <ProductListingMaster />
         </>

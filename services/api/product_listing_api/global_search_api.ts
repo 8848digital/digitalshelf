@@ -4,7 +4,7 @@ import { GlobalSearchMethod } from "../../methods/global_search_api";
 // import { useCookies } from 'react-cookie';
 import { NavbarApiMethods } from "../../methods/navbar_api_method";
 // import 
-import { client } from "../general_api/cookie_instance";
+import { client } from "./../general_api/cookie_instance";
 const GlobalSearch = async (search_text?:any) => {
     // const [cookies, setCookie] = useCookies<any>(["Cookie"]);
     let response: any;

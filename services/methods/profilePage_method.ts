@@ -1,3 +1,3 @@
 export enum ProfilePageAPIMethods {
-    profileData = '/api/method/ds.api.map.vm'
+    profileData = '/api/method/sportnetwork.api.map.version_mapper'
 }

@@ -50,4 +50,3 @@ export const storeVisitorCustomerAddressApi = (request:any, check?:any):any => a
 
 const { StoreCustomerAddressSuccess ,StoreCustomerAddressFailed } = StoreCustomerAddressScreen.actions;
 export default StoreCustomerAddressScreen.reducer
-

@@ -1,7 +1,7 @@
 import axios from "axios";
 import { CONSTANTS } from "../../config/api-config";
 import { CarouselApiMethods } from "../../methods/carousel_method";
-import { client } from "../general_api/cookie_instance";
+import { client } from "./../general_api/cookie_instance";
 const carouselFetch = async () => {
     let response: any;
     var getCookie = localStorage.getItem("Cookie");

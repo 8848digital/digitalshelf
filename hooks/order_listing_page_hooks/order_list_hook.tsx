@@ -2,10 +2,8 @@ import { useRouter } from "next/router";
 import { useState, useEffect } from "react"
 import { useSelector, useDispatch } from "react-redux"
 import ECommerceEnhancedCode from "../../services/api/general_api/ecommerce_enhance_code_api";
-import getSalesOrderID from "../../services/api/my_order_api/get_sales_order_id";
 import SalesOrderFetch from "../../services/api/my_order_api/get_sales_order_id";
 import getCartHistory from "../../services/api/my_order_api/order_history";
-import getCartHistoryApi from "../../services/api/my_order_api/order_history";
 import { CONSTANTS } from "../../services/config/api-config";
 import { CartListingApi } from "../../store/slices/cart_page_slice/cart_slice";
 

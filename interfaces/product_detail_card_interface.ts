@@ -11,5 +11,6 @@ export interface ProductDetailCardInterface {
     quantity?:any,
     handleQuantity?:any,
     handleQuantityDecre?:any,
-    handleQuantityIncre?:any
+    handleQuantityIncre?:any,
+    stockAvailability?:any
 }

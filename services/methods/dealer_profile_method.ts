@@ -1,3 +1,3 @@
 export enum DealerProfileAPIMethods {
-    Dealerprofile = '/api/method/ds.api.map.vm'
+    Dealerprofile = '/api/method/sportnetwork.api.map.version_mapper'
 }

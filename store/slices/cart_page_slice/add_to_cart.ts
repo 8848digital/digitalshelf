@@ -50,50 +50,13 @@ export const AddCartApi =
     console.log("add size", size);
 
     try {
-      if (size && color) {
-        const res = await getAddCartList(id, quantity, size, color);
-        console.log("add res", res);
-        if (res.msg !== "error") {
-          console.log("add cart Add to Cart Api store ", res);
-          dispatch(AddCartSuccess(res));
-        } else {
-          console.log("add cart Add to Cart Api store fail ", res);
-          dispatch(AddCartFailed(res));
-        }
-      } 
-      // else {
-      //   const res = await getAddCartList(id, quantity, size);
-      //   if (res.msg !== "error") {
-      //     console.log("add cart Add to Cart Api store ", res);
-      //     dispatch(AddCartSuccess(res));
-      //   } else {
-      //     console.log("add cart Add to Cart Api store fail ", res);
-      //     dispatch(AddCartFailed(res));
-      //   }
-      // } 
-      else if(size ) 
-      {
-        const res = await getAddCartList(id, quantity, size);
-        if (res.msg !== "error") {
-          console.log("add cart Add to Cart Api store ", res);
-          dispatch(AddCartSuccess(res));
-        }
-        else {
-          console.log("add cart Add to Cart Api store fail ", res);
-          dispatch(AddCartFailed(res));
-        }
-      }
-      else {
-        const res = await getAddCartList(id, quantity);
-        if (res.msg !== "error") {
-          console.log("add cart Add to Cart Api store ", res);
-          dispatch(AddCartSuccess(res));
-        }
-        else {
-          console.log("add cart Add to Cart Api store fail ", res);
-          dispatch(AddCartFailed(res));
-        }
-
+      const res = await getAddCartList(id, quantity, size, color);
+      if (res.msg !== "error") {
+        console.log("add cart Add to Cart Api store ", res);
+        dispatch(AddCartSuccess(res));
+      } else {
+        console.log("add cart Add to Cart Api store fail ", res);
+        dispatch(AddCartFailed(res));
       }
     } catch (error) {
       console.log(error);

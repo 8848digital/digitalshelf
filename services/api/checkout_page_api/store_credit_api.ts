@@ -1,7 +1,7 @@
 import axios from "axios";
 import { CONSTANTS } from "../../config/api-config";
 import { StoreCreditApiMethod } from "../../methods/store_credit_method";
-import { client } from "../general_api/cookie_instance";
+import { client } from "./../general_api/cookie_instance";
 
 const StoreCreditPostApi = async (store_credit:any) => {
   let response: any;

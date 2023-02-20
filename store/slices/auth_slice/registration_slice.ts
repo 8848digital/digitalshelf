@@ -27,7 +27,7 @@ const RegistrationScreen =  createSlice({
     initialState,
     reducers: {
         RegisterSuccess(state, action: PayloadAction<RepoRegisterState>) {
-            console.log(action.payload);
+            console.log("action",action.payload);
             localStorage.setItem("token", JSON.stringify(action.payload));
             state.user = action.payload;
             state.error = "";
@@ -43,14 +43,15 @@ export const Register_User = (state:RootState) => state.registration
 console.log("ts customer address", Register_User)
 
 export const RegisterUserApi = (request: any): any => async (dispatch: any) => {
-    console.log(request);
+    console.log("slice req",request);
     try {
         const res = await RegistrationApi(request);
-        console.log(res);
+        console.log("slice res",res);
         if (res.data.message.msg === "success") {
             dispatch(RegisterSuccess(res.data.message.data));
         }
         else {
+            console.log("failed")
             dispatch(RegisterFailed());
         }
     } catch (error) {

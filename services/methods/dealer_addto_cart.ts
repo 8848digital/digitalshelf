@@ -1,3 +1,3 @@
 export enum dealerAddCartAPIMethods {
-    dealeraddCart = 'api/method/ds.api.map.vm'
+    dealeraddCart = 'api/method/sportnetwork.api.map.version_mapper'
 }

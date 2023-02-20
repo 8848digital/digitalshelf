@@ -1,3 +1,3 @@
 export enum AddCartAPIMethods {
-    addCart = 'api/method/ds.api.map.vm'
+    addCart = 'api/method/sportnetwork.api.map.version_mapper'
 }

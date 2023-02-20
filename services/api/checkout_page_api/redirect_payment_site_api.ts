@@ -2,7 +2,7 @@
 
 import axios from "axios";
 import { CONSTANTS } from "../../config/api-config";
-import { client } from "../general_api/cookie_instance";
+import { client } from "./../general_api/cookie_instance";
 import handleResponse from "../../config/handle-response";
 
 const RedirectPayment = async(salesOrderId:any, amount:any) =>

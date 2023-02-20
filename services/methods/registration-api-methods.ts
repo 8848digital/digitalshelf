@@ -1,3 +1,3 @@
 export enum RegistrationApiMethods {
-    RegistrationApi = 'api/method/ds.api.map.vm'
+    RegistrationApi = 'api/method/sportnetwork.api.map.version_mapper'
 }

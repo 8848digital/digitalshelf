@@ -1,3 +1,3 @@
 export enum ForgotpasswordApiMethods {
-    ForgotpasswordApi = 'api/method/ds.api.map.vm'
+    ForgotpasswordApi = 'api/method/sportnetwork.api.map.version_mapper'
 }

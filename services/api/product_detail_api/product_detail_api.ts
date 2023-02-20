@@ -2,7 +2,7 @@
 
 import { CONSTANTS } from "../../config/api-config";
 import { ProductDetailApiMethods } from "../../methods/product_detail_method";
-import { client } from "../general_api/cookie_instance";
+import { client } from "./../general_api/cookie_instance";
 
 const ProductFetch = async (slug: any) => {
     console.log("in api");

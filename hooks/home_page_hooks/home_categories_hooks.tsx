@@ -7,6 +7,7 @@ import {
 
 const useUniverse = () => {
   let [categories, setcategories] = useState<any>([]);
+  let [categoriesWithListing, setCategoriesWithListing] = useState<any>([]);
   const dispatch = useDispatch();
   const homeCategories = useSelector(homecategories_state);
 
@@ -20,6 +21,11 @@ const useUniverse = () => {
       // }
       dispatch(HomeCategoriesApi());
   }, []);
+
+  // useEffect(()=>
+  // {
+
+  // },[])
   
   useEffect(() => {
     setcategories(homeCategories.items);

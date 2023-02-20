@@ -1,3 +1,3 @@
 export enum BreadCrumbsAPIMethods {
-    breadcrumbslist = 'api/method/ds.api.map.vm'
+    breadcrumbslist = 'api/method/sportnetwork.api.map.version_mapper'
 }

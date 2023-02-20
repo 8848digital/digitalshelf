@@ -1,7 +1,7 @@
 import axios from "axios";
 import { CONSTANTS } from "../../config/api-config";
 import { DeleteFromCartMethod } from "../../methods/delete_from_cart_method";
-import { client } from "../general_api/cookie_instance";
+import { client } from "./../general_api/cookie_instance";
 
 const deleteFromCart = async (id: any) => {
     let response: any;
