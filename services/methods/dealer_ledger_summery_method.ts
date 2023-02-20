@@ -1,3 +1,3 @@
 export enum DealerLegderSummeryMethod {
-    dealerLedgerSummery = 'api/method/ds.api.map.vm?version=v1&entity=gl&method=get_ledger_summary'
+    dealerLedgerSummery = 'api/method/sportnetwork.api.map.version_mapper?version=v1&entity=gl&method=get_ledger_summary'
 }

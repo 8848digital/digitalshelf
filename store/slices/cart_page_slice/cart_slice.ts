@@ -1,7 +1,7 @@
 
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { string } from "yup";
-import getCartList from "../../../services/api/cart_page_api/get_cart_listing_api";
+import getCartList from "../../../services/api/cart_page_api/cart_listing_api";
 import getClearCartApi from "../../../services/api/cart_page_api/clear_cart_api";
 // import { AppState } from "../store";
 import {RootState} from "../../root_reducer";

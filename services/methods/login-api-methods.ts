@@ -1,3 +1,3 @@
 export enum LoginApiMethods {
-    loginApi = 'api/method/ds.api.map.vm'
+    loginApi = 'api/method/sportnetwork.api.map.version_mapper'
 }

@@ -1,6 +1,6 @@
 import { CONSTANTS } from "../../config/api-config";
 import { AddCartAPIMethods } from "../../methods/add_cart_method";
-import { client } from "../general_api/cookie_instance";
+import { client } from "./../general_api/cookie_instance";
 
 const AddCartPost = async (
   id: any,
@@ -43,12 +43,12 @@ const AddCartPost = async (
       undefined,
       config
     )
-    .then((res: any) => {
-      // console.log("Add to cart api - ",res);
+    .then((res) => {
+      console.log("Add to cart api - ",res);
       response = res.data.message;
       // grandTotal = res.data.grand_total;
     })
-    .catch((err: any) => {
+    .catch((err) => {
       console.log(err);
     });
 

@@ -31,7 +31,7 @@ const LoginScreen = createSlice({
       // localStorage.setItem("token", tokenData[1]);
       // localStorage.setItem("isDealer",action.payload.is_dealer);
       //   localStorage.setItem("token", JSON.stringify(action.payload));
-      localStorage.setItem("isLoggedIn", "true")
+      localStorage.setItem("isLoggedIn", "true");
       state.user = "LoggedIn";
       state.error = "";
 
@@ -66,13 +66,27 @@ const LoginScreen = createSlice({
 export const login_state = (state: RootState) => state.Login;
 
 export const LoginUserApi =
-  (request: any, isGoogleLogin: boolean, visitor?:boolean): any =>
+  (
+    request: any,
+    isGoogleLogin: boolean,
+    visitor?: any,
+    isTokenBased?: boolean
+  ): any =>
   async (dispatch: any) => {
     try {
-
       if (isGoogleLogin) {
-        const res = await getGoogleLoginApi(request, isGoogleLogin, visitor);
-        console.log("login google slice", res)
+        const res = await getGoogleLoginApi(request, isGoogleLogin, visitor , isTokenBased);
+        console.log("login google slice", res);
+        if (res === "success") {
+          console.log("google login dispatch");
+          dispatch(LoginSuccess(res.data));
+        } else {
+          dispatch(LoginFailed(res.data));
+        }
+      } else if (isTokenBased) {
+        console.log("login for dealer");
+        const res = await getGoogleLoginApi(request, isGoogleLogin, visitor , isTokenBased);
+        console.log("login google slice", res);
         if (res === "success") {
           console.log("google login dispatch");
           dispatch(LoginSuccess(res.data));
@@ -80,6 +94,7 @@ export const LoginUserApi =
           dispatch(LoginFailed(res.data));
         }
       } else {
+        console.log("login for customer");
         const ifGuestTriestoLogin = localStorage.getItem("guest");
         console.log("google LOGIN", request);
         console.log("login visitor", visitor);
@@ -114,6 +129,7 @@ export const LoginUserApi =
   };
 export const LogoutUserApi = (): any => async (dispatch: any) => {
   try {
+    console.log("logout slice");
     const res = await LogoutList();
     console.log("logout res slice", res);
     dispatch(LogoutSuccess());

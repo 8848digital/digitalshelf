@@ -5,11 +5,13 @@ import { RootState } from "../../root_reducer";
 
 interface RepoHomeCategoriesState {
     items: any,
+    itemsListing:any,
     error: string
 }
 
 const initialState: RepoHomeCategoriesState = {
     items: [],
+    itemsListing:[],
     error: ''
 }
 
@@ -21,9 +23,13 @@ const HomeCategories = createSlice({
             state.items = action.payload;
             state.error = ""
         },
+        homeCategoriesWithListingSuccess(state, action:PayloadAction<RepoHomeCategoriesState>){
+            state.items = [];
+            state.itemsListing = action.payload;
+            state.error = ""
+        },
         homeCategoriesFailed(state) {
-            state.error = "No Items Found";
-            
+            state.error = "No Items Found"; 
         }
     }
 })

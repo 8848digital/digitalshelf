@@ -1,7 +1,7 @@
 import axios from "axios";
 import { CONSTANTS } from "../../config/api-config";
 import { ForgotpasswordApiMethods } from "../../methods/forgot_password_method";
-import { client } from "../general_api/cookie_instance";
+import { client } from "./../general_api/cookie_instance";
 const forgot_password = async (res: any) => {
   let response: any;
   const token = localStorage.getItem("token");

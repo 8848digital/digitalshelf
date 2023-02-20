@@ -1,3 +1,3 @@
 export enum DeleteFromCartMethod {
-    deleteCart = 'api/method/ds.api.map.vm'
+    deleteCart = "api/method/sportnetwork.api.map.version_mapper"
 }

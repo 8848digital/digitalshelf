@@ -1,3 +1,3 @@
 export enum NavbarApiMethods {
-    navbarList = 'api/method/ds.api.map.vm?version=v1&method=get&entity=mega_menu'
+    navbarList = 'api/method/sportnetwork.api.map.version_mapper?version=v1&method=get&entity=mega_menu'
 }

@@ -1,7 +1,7 @@
 import axios from "axios";
 import { CONSTANTS } from "../../config/api-config";
 import { ChangePasswordApiMethod } from "../../methods/change_password_method";
-import { client } from "../general_api/cookie_instance";
+import { client } from "./../general_api/cookie_instance";
 
 
 const ChangePasswordPost = async ({oldPassword, confirmPassword}: any) => {

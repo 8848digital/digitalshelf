@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { CustomerShippingAddressAPi,  customer_shipping_address } from "../../store/slices/customer_addresses_slice/customer_shipping_address_slice";
 import { CustomerBillingAddressAPi,  customer_billing_address } from "../../store/slices/customer_addresses_slice/customer_billing_address_slice";
 import { summary_state } from "../../store/slices/checkout_page_slice/order_summary";
-import useCartListing from "../cart_page_hooks/cart_hook";
+import useCartListing from "../../hooks/cart_page_hooks/cart_hook";
 import { getOrderSummary } from "../../store/slices/checkout_page_slice/order_summary";
 import { CartListingApi } from "../../store/slices/cart_page_slice/cart_slice";
 import { Cart_Listing } from "../../store/slices/cart_page_slice/cart_slice";
@@ -14,6 +14,7 @@ import {
   ProfilePageApi,
   profile_page,
 } from "../../store/slices/profile_page_slice/profilePage_slice";
+import { CONSTANTS } from "../../services/config/api-config";
 
 const useCheckOutNewHook = () =>
 {
@@ -85,7 +86,7 @@ const useCheckOutNewHook = () =>
 
       const checkIfGuestLogin = async() =>
       {
-        await client.get(`https://scott-sports-v14.8848digitalerp.com/api/method/frappe.auth.get_logged_user`, config).then((res)=>{
+        await client.get(`${CONSTANTS.API_BASE_URL}`, config).then((res)=>{
           console.log("guest login check",res);
           const saveGuest = res.data.message.includes("random");
           if(saveGuest)

@@ -16,12 +16,12 @@ const useProfilePage = () => {
   useEffect(() => {
     console.log("profile page initial load");
     dispatch(ProfilePageApi());
-    setProfileList(profileData.data);
+    setProfileList(profileData?.data);
   }, []);
 
   useEffect(() => {
-    setProfileList(profileData.data);
-  }, [profileData.data.billing_address]);
+    setProfileList(profileData?.data);
+  }, [profileData?.data?.billing_address]);
 
   console.log("hook end", profileList);
   return {

@@ -9,7 +9,7 @@ const Category = ({ meta_data }: any) => {
     // console.log("Product listing ", listItems)
     return (
         <div>
-            <Header meta_data={meta_data} />
+            {/* <Header meta_data={meta_data} /> */}
             <>
             <ProductListingMaster/>
             </>

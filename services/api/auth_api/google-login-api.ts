@@ -1,7 +1,7 @@
 import axios, {AxiosRequestHeaders } from "axios";
 import { CONSTANTS } from "../../config/api-config";
 import { LoginApiMethods } from "../../methods/login-api-methods";
-import { client } from "../general_api/cookie_instance";
+import { client } from "./../general_api/cookie_instance";
 interface IRaw_Data {
   version?: string;
   method?: string;
@@ -13,7 +13,7 @@ interface IRaw_Data {
   redirect?:boolean
 }
 
-const GoogleLoginFetch = async (request: any, isGoogleLogin: boolean, visitor?:boolean) => {
+const GoogleLoginFetch = async (request: any, isGoogleLogin: boolean, visitor?:any ,isTokenBased?:boolean) => {
 
   let response: any;
   let raw_data: IRaw_Data;
@@ -29,13 +29,26 @@ const GoogleLoginFetch = async (request: any, isGoogleLogin: boolean, visitor?:b
     withCredentials:true
   };
 
-  raw_data = {
-    version: "v1",
-    method: "signin",
-    entity: "signin",
-    ...request,
-    via_google: true,
-  };
+  if (isTokenBased) {
+
+    raw_data = {
+      version: "v1",
+      method: "signin",
+      entity: "signin",
+      ...request,
+      via_google:false,
+  
+    };
+  } else {
+    raw_data = {
+      version: "v1",
+      method: "signin",
+      entity: "signin",
+      ...request,
+      via_google:true,
+  
+    };
+  }
 
 
   await client.post(`${CONSTANTS.API_BASE_URL}/${LoginApiMethods.loginApi}`, raw_data, config).then((res)=>{
@@ -97,7 +110,7 @@ const GoogleLoginFetch = async (request: any, isGoogleLogin: boolean, visitor?:b
 
 };
 
-const getGoogleLoginApi = (request: any, isGoogleLogin: boolean, visitor?:boolean) =>
-  GoogleLoginFetch(request, isGoogleLogin, visitor);
+const getGoogleLoginApi = (request: any, isGoogleLogin: boolean, visitor?:any ,isTokenBased?:boolean) =>
+  GoogleLoginFetch(request, isGoogleLogin, visitor ,isTokenBased);
 
 export default getGoogleLoginApi;

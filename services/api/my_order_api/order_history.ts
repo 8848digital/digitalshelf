@@ -1,6 +1,6 @@
 
 import { CONSTANTS } from "../../config/api-config";
-import { client } from "../general_api/cookie_instance";
+import { client } from "./../general_api/cookie_instance";
 
 const getCartHistory = async (date?:any, id?: any) => {
     let response: any;

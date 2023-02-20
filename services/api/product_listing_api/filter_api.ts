@@ -1,6 +1,6 @@
 
 import { CONSTANTS } from "../../config/api-config";
-import { client } from "../general_api/cookie_instance";
+import { client } from "./../general_api/cookie_instance";
 const FilterFetch = async (
   query: any,
   // subCategory?: any,

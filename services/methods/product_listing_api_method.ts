@@ -1,3 +1,3 @@
 export enum ProductListingAPIMethods {
-    productList = '/api/method/ds.api.map.vm'
+    productList = '/api/method/sportnetwork.api.map.version_mapper'
 }

@@ -1,3 +1,3 @@
 export enum FilterApiMethods {
-    filter = 'api/method/ds.api.map.vm'
+    filter = 'api/method/sportnetwork.api.map.version_mapper'
 }

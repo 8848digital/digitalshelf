@@ -29,7 +29,7 @@ const navbarFetch = async () => {
                 response = res.data.message.data.sort((function (a: any, b: any) {
                     return a.seq - b.seq;
                 }));
-                // console.log(response);
+                console.log(response,"navresponse");
             })
             .catch(err => console.log(err));
             return response;

@@ -1,83 +1,80 @@
-import axios from "axios";
-import { CONSTANTS } from "../../config/api-config";
-import { CustomerAddressApiMethod } from "../../methods/CustomerAddress_method";
 import { client } from "./../general_api/cookie_instance";
-import { useDispatch } from "react-redux";
-import { CustomerShippingAddressAPi } from "../../../store/slices/customer_addresses_slice/customer_shipping_address_slice";
-import { CustomerBillingAddressAPi } from "../../../store/slices/customer_addresses_slice/customer_billing_address_slice";
-
-const StoreCustomerAddressFetch = async (request: any, check?: any) => {
-  let response: any;
-  let trialResponse: any;
-  let saveUserId: any;
-  // const dispatch = useDispatch();
-  const token = localStorage.getItem("token");
-  // console.log("store address post token", token);
-
-  const config = {
+import { CONSTANTS } from "../../config/api-config";
+import { StoreReplacementMethods } from "../../methods/store_replacement_images_methods";
+const StoreReplacementImagesDataFetch = async (request: any) => {
+  let response:any={};
+  // let base64URL: any;
+  // console.log("my orders api", request);
+  // const filePromise = new Promise((resolve, reject) => {
+  //   const fileReader = new FileReader();
+  //   fileReader.readAsDataURL(request);
+  //   fileReader.onload = () => {
+  //     console.log("my orders base64 response", fileReader.result);
+  //     base64URL = fileReader.result;
+  //     resolve(fileReader.result);
+  //   };
+  //   fileReader.onerror = (error) => {
+  //     reject(error);
+  //   };
+  // });
+  // filePromise
+  //   .then(async(data:any) => {
+  //     console.log("my orders filepromise data", data);
+  //     var bodyFormData = new FormData();
+  //     bodyFormData.append("file", data);
+  //     await client({
+  //       method: "post",
+  //       url: `${CONSTANTS.API_BASE_URL}${StoreReplacementMethods.StoreReplacementMethodsAPI}`,
+  //       data: bodyFormData,
+  //       headers: {
+  //         "Content-Type":
+  //           "multipart/form-data",
+  //       },
+  //     })
+  //       .then((response) => {
+  //         //handle success
+  //         console.log("my orders", response);
+  //       })
+  //       .catch((response) => {
+  //         //handle error
+  //         console.log("my orders", response);
+  //       });
+  //   })
+  //   .catch((err) => {
+  //     console.log(err);
+  //   });
+  console.log("my orders promise", request);
+  var bodyFormData = new FormData();
+  bodyFormData.append("file", request);
+  await client({
+    method: "post",
+    url: `${CONSTANTS.API_BASE_URL}${StoreReplacementMethods.StoreReplacementMethodsAPI}`,
+    data: bodyFormData,
     headers: {
-      Accept: "application/json",
+      "Content-Type":
+        "multipart/form-data",
     },
-    withCredentials: true,
-  };
+  })
+    .then((res) => {
+      //handle success
+      console.log("my orders", res);
+      // let imgName:any = res.data.message.name;
+      // const file_url:any = res.data.message.file_url;
+      // response[`${res.data.message.name}`] = file_url;
 
-  let body = {
-    version: "v1",
-    method: "put",
-    entity: "customer_address",
-    ...request,
-  };
-  console.log("body", body);
-
-  await client
-    .post(
-      `${CONSTANTS.API_BASE_URL}/${CustomerAddressApiMethod.CustomerAddress}`,
-      body,
-      config
-    )
-    .then(async (res) => {
-      console.log("store shipping address form res", res);
-      trialResponse = res.data.message;
-      // response = res.data.message;
-      // saveUserId = res.data.message;
-      // console.log("form store address api response", response);
-
-      if (check) {
-        body.address_type = "Billing";
-        // console.log("body", body);
-        await client
-          .post(
-            `${CONSTANTS.API_BASE_URL}/${CustomerAddressApiMethod.CustomerAddress}?user_id=${res.data.message.data.customer_id}`,
-            body,
-            config
-          )
-          .then(async (res) => {
-            console.log("store billing address form res", res);
-            response = trialResponse;
-
-            // await client
-            //   .post(
-            //     `http://scott-sports-v14.8848digitalerp.com/api/method/sportnetwork.utils.sync_guest_user?email=${request.email}`,
-            //     undefined,
-            //     config
-            //   )
-            //   .then((res) => {
-            //     console.log("store sync res",res);
-            //     // dispatch(CustomerShippingAddressAPi(saveUserId));
-            //     // dispatch(CustomerBillingAddressAPi(saveUserId));
-            //   })
-            //   .catch((err) => console.log(err));
-          })
-          .catch((err) => console.log(err));
-      }
+      response.name = res.data.message.name;
+      response.file_url = res.data.message.file_url
+      // const testObj['imgName'] = file_url
+      // response = { ...response, imgName:file_url}
+      console.log("my orders store replacement images api response", response)
     })
-    .catch((err) => {
-      console.log(err);
+    .catch((response) => {
+      //handle error
+      console.log("my orders", response);
     });
-  return response;
+    return response;
 };
 
-const StoreCustomerAddressPost = (request: any, check?: any) =>
-  StoreCustomerAddressFetch(request, check);
-
-export default StoreCustomerAddressPost;
+const storeReplacementImagesAPI = (request: any) =>
+  StoreReplacementImagesDataFetch(request);
+export default storeReplacementImagesAPI;

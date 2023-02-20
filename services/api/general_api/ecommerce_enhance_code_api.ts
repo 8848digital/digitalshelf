@@ -1,6 +1,5 @@
-
 import axios from 'axios';
-import { client } from "./cookie_instance";
+import { client } from "./../general_api/cookie_instance";
 const ECommerceEnhancedCode = async (url: any, method:any, entity:any, salesOrderId:any) => {
 
     const config = {

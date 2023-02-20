@@ -1,7 +1,7 @@
 import axios from "axios";
 import { CONSTANTS } from "../../config/api-config";
 import { ResetpasswordlinkApiMethods } from "../../methods/Reset_password_link_methods";
-import { client } from "../general_api/cookie_instance";
+import { client } from "./../general_api/cookie_instance";
 const password_link = async (res: any) => {
   let response: any;
   const token = localStorage.getItem("token");

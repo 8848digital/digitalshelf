@@ -17,19 +17,19 @@ const AddCartScreen = createSlice({
   name: "Add-Cart",
   initialState,
   reducers: {
-    AddCartSuccess(state:any, action:any) {
+    AddCartSuccess(state, action) {
       console.log("add cart action payload", action.payload);
       state.item = action.payload;
       state.msg = action.payload.msg;
       state.error = "";
     },
-    AddCartFailed(state:any, action:any) {
+    AddCartFailed(state, action) {
       console.log("add cart action payload", action.payload);
       state.item = action.payload;
       state.msg = action.payload.msg;
       state.error = action.payload.error;
     },
-    ResetAddCartSuccess(state:any) {
+    ResetAddCartSuccess(state) {
       state.item = [];
       state.msg = "";
       state.error = "";
@@ -52,7 +52,7 @@ export const AddCartApi =
     try {
       const res = await getAddCartList(id, quantity, size, color);
       if (res.msg !== "error") {
-        console.log("add cart Add to Cart Api store success ", res);
+        console.log("add cart Add to Cart Api store ", res);
         dispatch(AddCartSuccess(res));
       } else {
         console.log("add cart Add to Cart Api store fail ", res);

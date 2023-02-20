@@ -1,3 +1,3 @@
 export enum StoreCreditApiMethod {
-    StoreCredit =  'api/method/ds.api.map.vm'
+    StoreCredit =  "api/method/sportnetwork.api.map.version_mapper"
 }

@@ -1,7 +1,7 @@
 
-import { CONSTANTS } from "../config/api-config";
-import { PlaceOrderApiMethod } from "../methods/place_order_method";
-import { client } from "./general_api/cookie_instance";
+import { CONSTANTS } from "../../config/api-config";
+import { PlaceOrderApiMethod } from "../../methods/place_order_method";
+import { client } from "./../general_api/cookie_instance";
 const PlaceOrderApiNew = async(cart:any, shippingdAddress:any, billingAddress:any) => {
     const token = localStorage.getItem("token");
 

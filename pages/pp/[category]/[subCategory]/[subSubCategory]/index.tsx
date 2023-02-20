@@ -10,7 +10,7 @@ const ProductDetail = ({meta_data}:any) => {
     // console.log("detail", detail);
     return (
         <div>
-            <Header meta_data={meta_data} />
+            {/* <Header meta_data={meta_data} /> */}
 
             <>
             <ProductDetailMasterComponent />

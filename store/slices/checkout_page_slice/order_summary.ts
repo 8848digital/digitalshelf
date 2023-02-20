@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import getOrderSummaryList from "../../../services/api/checkout_page_api/order_summary_api";
+import getOrderSummaryList from "../../../services/api/checkout_page_api//order_summary_api";
 import { RootState } from "../../root_reducer";
 // import { AppState } from "../store";
 

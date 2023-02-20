@@ -1,3 +1,3 @@
 export enum SuggestedProApiMethod {
-    suggestedPro = 'api/method/ds.api.map.vm'
+    suggestedPro = 'api/method/sportnetwork.api.map.version_mapper'
 }

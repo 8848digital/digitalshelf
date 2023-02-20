@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import getdealerAddCartList from "../../../services/api/dealer_api/dealer_add_cart_api";
+import getdealerAddCartList from "../../../services/api/cart_page_api/get_cart_listing_api";
 
 interface RepoDealerAddCartState {
     item: any;

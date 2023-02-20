@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
-import { Customer_address } from '../../store/slices/customer_addresses_slice/CustomerAddress_slice';
 import { getCustomerAddressApi, getCustomer_Address } from '../../store/slices/customer_addresses_slice/getCustomerAddress_slice';
 import useProfilePage from '../profile_page_hooks/profilePage_hook';
 

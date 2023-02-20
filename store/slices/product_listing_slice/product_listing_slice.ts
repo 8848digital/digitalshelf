@@ -76,8 +76,10 @@ export const ProductListingApi =
     if (!search_text) {
       console.log("///////******/////------if")
       if (filters) {
+        console.log("product listing query in filters slice",query);
         res = await getProductList(pageNumber, query, low_high, filters);
       } else {
+        console.log("product listing query",query);
         res = await getProductList(pageNumber, query, low_high);
       }
     }else{

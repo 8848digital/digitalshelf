@@ -1,3 +1,3 @@
 export enum CartListingMethods {
-    cartList = 'api/method/ds.api.map.vm'
+    cartList = 'api/method/sportnetwork.api.map.version_mapper'
 }

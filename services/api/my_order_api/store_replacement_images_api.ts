@@ -1,4 +1,4 @@
-import { client } from "../general_api/cookie_instance";
+import { client } from "./../general_api/cookie_instance";
 import { CONSTANTS } from "../../config/api-config";
 import { StoreReplacementMethods } from "../../methods/store_replacement_images_methods";
 const StoreReplacementImagesDataFetch = async (request: any) => {

@@ -27,16 +27,44 @@ yarn-error.log*
 next-env.d.ts
 
 
-/themes
+# /themes
+# /addons
+/addons/sns-addon
+/themes/maxima
+/themes/ecommerce-elite-theme
 /cards 
 /components
 /styles
+/public/assets
 # /pages
 /pages/_app.tsx
 /pages/index.tsx
-/services/config/api-config.ts
+/pages/about_us.tsx 
+/pages/avantipdf.tsx 
+/pages/contact_us.tsx 
+/pages/dealer-ledger.tsx 
+/pages/dealer-profile.tsx 
+/pages/declaration_of_confirmity_bikes.tsx 
+/pages/find_dealer.tsx 
+/pages/findaDealer.tsx 
+/pages/manuals_apparel_view.tsx 
+/pages/manuals_backpacks_view.tsx 
+/pages/manuals_bike_view.tsx 
+/pages/manuals_bike.tsx 
+/pages/manuals_gloves_view.tsx 
+/pages/manuals_helmet_view.tsx 
+/pages/manuals.tsx 
+/pages/NewsLetter.tsx 
+/pages/nocostemi_tc.tsx 
+/pages/privacypolicy.tsx 
+/pages/returnpolicy.tsx 
+/pages/terms-condition.tsx 
+/pages/testdetail.tsx 
+/pages/warning.tsx 
+/pages/warranty.tsx 
+
+#files in theme
 /_app.tsx
 /index.tsx
-/api-config.ts
-/datasets
+
 

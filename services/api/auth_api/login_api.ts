@@ -1,7 +1,7 @@
 import axios, {AxiosRequestHeaders } from "axios";
 import { CONSTANTS } from "../../config/api-config";
 import { LoginApiMethods } from "../../methods/login-api-methods";
-import { client } from "../general_api/cookie_instance";
+import { client } from "./../general_api/cookie_instance";
 interface IRaw_Data {
   version?: string;
   method?: string;

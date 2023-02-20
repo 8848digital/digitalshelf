@@ -1,25 +1,29 @@
 import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import { useSelector, useDispatch } from "react-redux";
-import { ProductDetailApi } from "../../store/slices/product_detail_slice/product_detail_slice";
+import { ProductDetailApi, ProductStockAvailabilityAPI } from "../../store/slices/product_detail_slice/product_detail_slice";
 import { ProductVariantsApi } from "../../store/slices/product_detail_slice/product_variant_slice";
 import { product_detail_state } from "../../store/slices/product_detail_slice/product_detail_slice";
 import { product_variant_state } from "../../store/slices/product_detail_slice/product_variant_slice";
-import { SuggestedProApi, suggested_pro_state } from "../../store/slices/product_detail_slice/suggested_pro_slice";
-
+import { SuggestedProApi, alternativeProductApi,suggested_pro_state } from "../../store/slices/product_detail_slice/suggested_pro_slice";
+import { RootState } from "../../store/root_reducer";
+import { CONSTANTS } from "../../services/config/api-config";
 const useProductDetail = () => {
   let [detail, setdetail] = useState<any>([]);
   let [variants, setvariants] = useState<any>([]);
   let [images, setimages] = useState<any>([]);
   let [specifications, setspecifications] = useState<any>([]);
-  let [initialSize, setInitialSize] = useState('');
-  let [initialColor, setInitialColor] = useState('');
+  let [initialSize, setInitialSize] = useState("");
+  let [initialColor, setInitialColor] = useState("");
   let [quantity, setquantity] = useState<number>(1);
   // let [g, setspecifications] = useState<any>([]);
   let [suggestedDataState, setSuggestedDataState] = useState<any>([]);
-  const suggestedData = useSelector(suggested_pro_state);
+  let [alternativeDataState, setAlternativeDataState] = useState<any>([]);
+  let [stockAvailability, setStockAvailability] = useState<any>([]);
+  // const suggestedData = useSelector(suggested_pro_state);
+  const suggestedData =useSelector((state: RootState) => state.suggestedProScreen); 
   console.log("suggested data from state in hook", suggestedData);
-  let imgArr:any = [];
+  let imgArr: any = [];
   let imgObj: any = {};
   let router: any;
   const dispatch = useDispatch();
@@ -35,6 +39,7 @@ const useProductDetail = () => {
   console.log("detail variants from store", prodVariants);
   console.log("detail variants from store", prodVariants.initialSize);
   console.log("detail variants from store", prodVariants.initialColor);
+  console.log("stock availability", router[router.length - 1],"router");
   // console.log("detail variants initial size",prodVariants.variants.attributes)
   // console.log("detail images from store", prodDetailData?.item?.slide_img);
 
@@ -44,51 +49,61 @@ const useProductDetail = () => {
     // console.log("detail query varinats testing",)
     dispatch(ProductDetailApi(router[router.length - 1]));
     dispatch(ProductVariantsApi(router[router.length - 1]));
-    dispatch(SuggestedProApi("suggested", router[router.length - 1]))
+    dispatch(SuggestedProApi("suggested", router[router.length - 1]));
+    dispatch(alternativeProductApi("alternate", router[router.length - 1]));
+    dispatch(ProductStockAvailabilityAPI(router[router.length - 1]));
   }, []);
 
   useEffect(() => {
+    console.log(" prod detail sp hook", prodDetailData);
+    // if(prodDetailData.item.length === 0)
+    // {
+    //   console.log("prod detail hook")
+    // }
     setdetail((detail = [prodDetailData.item]));
     setvariants((variants = [prodVariants.variants]));
     setInitialSize(prodVariants.initialSize);
     setInitialColor(prodVariants.initialColor);
-    setSuggestedDataState((suggestedDataState= [...suggestedData?.items]))
+    // setStockAvailability([...prodDetailData.stock]);
+    if(suggestedData?.suggestedItems?.length > 0)
+    {
+      setSuggestedDataState(suggestedDataState= [...suggestedData?.suggestedItems])
+    }
 
+    if(suggestedData?.aletrnativeItems?.length > 0)
+    {
+      setAlternativeDataState(alternativeDataState= [...suggestedData?.aletrnativeItems])
+    }
   
     // setInitialColor(prodVariants?.variants?.attributes[3].colour_values[0]);
 
-    // prodDetailData?.item?.slide_img?.map((imgs:any)=>{
-      // imgObj.original=`http://scott-sports.8848digitalerp.com${imgs}`,
-      // imgObj.thumbnail = `http://scott-sports.8848digitalerp.com${imgs}`
+    prodDetailData?.item?.slide_img?.map((imgs: any) => {
+      imgArr.push({
+        original: `${CONSTANTS.API_BASE_URL}${imgs}`,
+        thumbnail: `${CONSTANTS.API_BASE_URL}${imgs}`,
+        variant_code:0
+      });
+    });
 
-      // console.log("images object", imgObj);
-      // imgArr.push(imgObj)
-    //   imgArr.push({original:`https://scott-sports-v14.8848digitalerp.com${imgs}`, thumbnail:`https://scott-sports-v14.8848digitalerp.com${imgs}`})
-    // })
-
-    // prodDetailData?.item?.slide_img?.map((imgs: any) => {
-    //   setimages([ ...images, { original: `http://scott-sports.8848digitalerp.com${imgs}`, 
-    //   thumbnail:`http://scott-sports.8848digitalerp.com${imgs}` }]);
-    // });
-    // prodDetailData?.item?.slide_img?.map((imgs: any) => {
-    //   setimages(imgArr)
-    // });
+    
+    prodDetailData?.item?.slide_img?.map((imgs: any) => {
+      setimages(imgArr)
+    });
   }, [prodDetailData, prodVariants, suggestedData]);
 
-  const handleSize = (val:string) => {
+  const handleSize = (val: string) => {
     // console.log("handle size", val)
     setInitialSize(val);
   };
-  
-  const handleColor = (val:string)=>
-  {
+
+  const handleColor = (val: string) => {
     // console.log("handle color", val)
     setInitialColor(val);
-  }
+  };
 
   const handleQuantity = (val: any) => {
     setquantity(val);
-    console.log("quantity",quantity);
+    console.log("quantity", quantity);
   };
 
   const handleQuantityIncre = () => {
@@ -124,6 +139,8 @@ const useProductDetail = () => {
   console.log("detail variants color from store 2", initialColor);
   console.log("detail hook variants",variants)
   console.log("suggested state hook",suggestedDataState)
+  console.log("alternative state hook",alternativeDataState)
+  console.log("stock availability",stockAvailability );
 
   return {
     detail,
@@ -140,7 +157,9 @@ const useProductDetail = () => {
     handleQuantityIncre,
     handleQuantityDecre,
     setquantity,
-    suggestedDataState
+    suggestedDataState,
+    alternativeDataState,
+    stockAvailability
   };
 };
 

@@ -6,7 +6,7 @@ import Header from '../../../../../components/Head/Head';
 const SubsubCategory = ({ meta_data }: any) => {
     return (
         <div>
-            <Header meta_data={meta_data} />
+            {/* <Header meta_data={meta_data} /> */}
             <>
                 <ProductListingMaster/>
             </>

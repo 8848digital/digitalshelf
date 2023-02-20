@@ -1,3 +1,3 @@
 export enum CouponCodeApiMethod {
-    CouponCode =  'api/method/ds.api.map.vm'
+    CouponCode =  "api/method/sportnetwork.api.map.version_mapper"
 }

@@ -30,7 +30,63 @@ export const BreadCrumbsApi =
     // console.log("breadcrumb middleware", prodType);
     // console.log("breadcrumb middleware", category);
     // console.log("breadcrumb middleware", subCategory);
+
     try {
+      //     if (prodType === "pl") {
+      //         if (prodType && category && subCategory && subSubCategory) {
+      //             const res = await getBreadCrumbsList(prodType, category, subCategory, subSubCategory);
+      //             dispatch(breadCrumbSuccess(res));
+      //             // console
+      //         }
+      //         else if (prodType && category && subCategory) {
+      //             const res = await getBreadCrumbsList(prodType, category, subCategory);
+      //             dispatch(breadCrumbSuccess(res));
+      //         }
+      //         else if(prodType && category ) {
+      //             const res = await getBreadCrumbsList(prodType, category);
+      //             dispatch(breadCrumbSuccess(res));
+      //         }
+      //         else
+      //         {
+      //             const res = await getBreadCrumbsList(prodType);
+      //             dispatch(breadCrumbSuccess(res));
+      //         }
+      //     }
+      //     if (prodType === "pp") {
+      //         if (product) {
+      //             const res = await getBreadCrumbsList(prodType, category, subCategory, subSubCategory, product)
+      //             dispatch(breadCrumbSuccess(res));
+      //         }
+      //         else if (subSubCategory) {
+      //             // product = subSubCategory;
+      //             const res = await getBreadCrumbsList(prodType, category, subCategory, subSubCategory)
+      //             dispatch(breadCrumbSuccess(res));
+      //         }
+      //         else if(subCategory) {
+      //             const res = await getBreadCrumbsList(prodType, category, subCategory)
+      //             dispatch(breadCrumbSuccess(res));
+      //         }
+      //         else
+      //         {
+      //             const res = await getBreadCrumbsList(prodType, category)
+      //             dispatch(breadCrumbSuccess(res));
+      //         }
+      //     }
+      //    if (prodType === "bpl") {
+      //     if (prodType && category) {
+      //         const res = await getBreadCrumbsList(prodType,category);
+      //         dispatch(breadCrumbSuccess(res));
+      //        console.log(res);
+      //     }
+      //   }
+      //   if (prodType === "bpp") {
+      //     if (prodType && category) {
+      //         const res = await getBreadCrumbsList(prodType, category, subCategory);
+      //         dispatch(breadCrumbSuccess(res));
+      //        console.log(res);
+      //     }
+      //   }
+
       const res = await getBreadCrumbsList(url);
       dispatch(breadCrumbSuccess(res));
     } catch (error) {

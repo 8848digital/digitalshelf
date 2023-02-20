@@ -1,7 +1,7 @@
 import axios from "axios";
-import { CONSTANTS } from "../config/api-config";
-import { CouponCodeApiMethod } from "../methods/coupon_code_method";
-import { client } from "./general_api/cookie_instance";
+import { CONSTANTS } from "../../config/api-config";
+import { CouponCodeApiMethod } from "../../methods/coupon_code_method";
+import { client } from "./../general_api/cookie_instance";
 const DeleteCouponCode = async (item_code:any) => {
   let response: any;
 
