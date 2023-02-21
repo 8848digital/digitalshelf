@@ -11,4 +11,8 @@ export interface ProductCardInterface {
     brand_img?:string,
     display_tag?:any,
     description?:string
+    setWishlistToast?:any
+    wishlistToast?:any
+    setWishlistToastnew?:any
+    WishlistToastnew?:any
 }

@@ -20,6 +20,8 @@ const useProductDetail = () => {
   let [suggestedDataState, setSuggestedDataState] = useState<any>([]);
   let [alternativeDataState, setAlternativeDataState] = useState<any>([]);
   let [stockAvailability, setStockAvailability] = useState<any>([]);
+  const [wishlistToast, setWishlistToast] = useState(false);
+  const [WishlistToastnew, setWishlistToastnew] = useState(false);
   // const suggestedData = useSelector(suggested_pro_state);
   const suggestedData =useSelector((state: RootState) => state.suggestedProScreen); 
   console.log("suggested data from state in hook", suggestedData);
@@ -77,18 +79,19 @@ const useProductDetail = () => {
   
     // setInitialColor(prodVariants?.variants?.attributes[3].colour_values[0]);
 
-    prodDetailData?.item?.slide_img?.map((imgs: any) => {
+ prodDetailData?.item?.slide_img?.map((imgs: any) => {
       imgArr.push({
         original: `${CONSTANTS.API_BASE_URL}${imgs}`,
         thumbnail: `${CONSTANTS.API_BASE_URL}${imgs}`,
         variant_code:0
       });
     });
-
+  
     
     prodDetailData?.item?.slide_img?.map((imgs: any) => {
       setimages(imgArr)
     });
+ 
   }, [prodDetailData, prodVariants, suggestedData]);
 
   const handleSize = (val: string) => {
@@ -159,7 +162,11 @@ const useProductDetail = () => {
     setquantity,
     suggestedDataState,
     alternativeDataState,
-    stockAvailability
+    stockAvailability,
+    setWishlistToast,
+    wishlistToast,
+    setWishlistToastnew,
+    WishlistToastnew,
   };
 };
 
